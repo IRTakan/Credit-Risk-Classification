@@ -81,3 +81,5 @@ Logistic Regression Model 2:
 
 - The Logistic Regression Model 2 that uses resampled data, performs noticably better at identifying high risk loans in addition to identifying healthy loans. The overall prediction rate is consistent across precision, recall, and accuracy. I believe its best to utilizie the second model because of its heightened ability to detect high risk loans more accurately. 
 This is especially important given how much it can cost a loan provider to misidentify and lend money to a high risk loan applicant, and the minimal cost of misidentifying a healthy loan applicant. One thing that is certain is that model 1 is better at identifying healthy loan applicants, but this is less important than correctly identifying high risk loan applicants, which is accomplished better with model 2.
+
+*Technologies used: Microsoft Visual Studio Code. Languages: Python
