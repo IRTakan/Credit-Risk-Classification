@@ -59,7 +59,7 @@ These are the factors that were considered in the analysis:
 
 The dataset of 77,536 data points was split into training and testing sets. The training set was used to build an initial logistic regression model (Logistic Regression Model 1) using the LogisticRegression module from scikit-learn. Logistic Regression Model 1 was then applied to the testing dataset. The purpose of the model was to determine whether a loan to the borrower in the testing set would be low- or high-risk and results are summarized below.
 
-Two different Logistic Regression models were created by using the original data set and randomy over resampled data set (to get rid of the imbalances). In the end, their results -which was gathered with scikit-learn library- were compared. The resampled data was used to build a new logistic regression model (Logistic Regression Model 2). The purpose of Logistic Regression Model 2 was to determine whether a loan to the borrower in the testing set would be low- or high-risk.
+Two different Logistic Regression models were created by using the original data set and randomy over resampled data set (to get rid of the imbalances). In the end, their results -which was gathered with scikit-learn library- were compared. The resampled data was used to build a new logistic regression model (Logistic Regression Model 2). The purpose of Logistic Regression Model 2 was to determine whether a loan to the borrower in the testing set would be low or high-risk.
 
 --Results--
 
@@ -76,3 +76,8 @@ Logistic Regression Model 2:
 - Recall: For healthy loans the recall score is 0.99, for high-risk loans the recall score is 0.99.
 
 --Summary--
+
+- Logistic Regression Model 1 which uses original data and does a great job at predicting healthy loans with accuracy, precision and recall close to 100%. However it performs noticably worse at identifying high-risk loans where it has a precision of 85% and a recall of 91%. This tells us that this model is less able to classify high risk loans than healthy loans. This is likely related to the skew in the data that was provided, with only about 3% of the sample being in the high risk loans category. 
+
+- The Logistic Regression Model 2 that uses resampled data, performs noticably better at identifying high risk loans in addition to identifying healthy loans. The overall prediction rate is consistent across precision, recall, and accuracy. I believe its best to utilizie the second model because of its heightened ability to detect high risk loans more accurately. 
+This is especially important given how much it can cost a loan provider to misidentify and lend money to a high risk loan applicant, and the minimal cost of misidentifying a healthy loan applicant. One thing that is certain is that model 1 is better at identifying healthy loan applicants, but this is less important than correctly identifying high risk loan applicants, which is accomplished better with model 2.
