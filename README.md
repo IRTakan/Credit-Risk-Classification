@@ -57,13 +57,13 @@ These are the factors that were considered in the analysis:
 - Derogatory marks against the borrower.
 - Total debt.
 
-The dataset has 77,536 data points of whch were split into training and testing sets. The training set was used to build an initial logistic regression model (Logistic Regression Model 1) using the LogisticRegression module from scikit-learn. Logistic Regression Model 1 was then applied to the testing dataset. The purpose for this was to determine whether a loan to the borrower in the testing set would be low or high-risk. This intial model was drawing from a dataset that had 75,036 low-risk loan data points and 2,500 high-risk data points. To resample the training data and ensure that the logistic regression model had an equal number of data points to draw from, the training set data was resampled with the RandomOverSampler module from imbalanced-learn. This then generated 56,277 data points for both low-risk (0) and high-risk (1) loans, based on the original dataset. The resampled data was the used to build a Logistic Regression Model 2. The purpose of Logistic Regression Model 2 was to determine whether a loan to the borrower in the testing set would be low or high-risk.
+The dataset has 77,536 data points of whch were split into training and testing sets. The training set was used to build an initial logistic regression model (Logistic Regression Model 1) using the LogisticRegression module from scikit-learn. Logistic Regression Model 1 was then applied to the testing dataset. The purpose for this was to determine whether a loan to the borrower in the testing set would be low or high-risk. This intial model was drawing from a dataset that had 75,036 low-risk loan data points and 2,500 high-risk data points. To resample the training data and ensure that the logistic regression model had an equal number of data points to draw from, the training set data was resampled with the RandomOverSampler module from imbalanced-learn. This then generated 56,277 data points for both low-risk (0) and high-risk (1) loans, based on the original dataset. The resampled data was the used to build a Logistic Regression Model 2. The purpose of Logistic Regression Model 2 was to also determine whether a loan to the borrower in the testing set would be low or high-risk.
 
 --Results--
 
 Logistic Regression Model 1:
 
-- Accuracy: 0.99.
+- Accuracy: 0.95.
 - Precision: For healthy loans the precision is 1.00, for high-risk loans the precision is 0.85.
 - Recall: For healthy loans the recall score is 0.99, for high-risk loans the recall score is 0.91.
 
@@ -77,7 +77,8 @@ Logistic Regression Model 2:
 
 - Logistic Regression Model 1 which uses original data and does a great job at predicting healthy loans with accuracy, precision and recall close to 100%. However it performs noticably worse at identifying high-risk loans where it has a precision of 85% and a recall of 91%. This tells us that this model is less able to classify high risk loans than healthy loans. This is likely related to the skew in the data that was provided, with only about 3% of the sample being in the high risk loans category. 
 
-- The Logistic Regression Model 2 that uses resampled data, performs noticably better at identifying high risk loans in addition to identifying healthy loans. The overall prediction rate is consistent across precision, recall, and accuracy. I believe its best to utilizie the second model because of its heightened ability to detect high risk loans more accurately. 
+- The Logistic Regression Model 2 that uses resampled data, performs noticably better at identifying high risk loans in addition to identifying healthy loans. The overall prediction rate is consistent across precision, recall, and accuracy. I believe its best to utilizie the second model because of its heightened ability to detect high risk loans more accurately.
+
 This is especially important given how much it can cost a loan provider to misidentify and lend money to a high risk loan applicant, and the minimal cost of misidentifying a healthy loan applicant. One thing that is certain is that model 1 is better at identifying healthy loan applicants, but this is less important than correctly identifying high risk loan applicants, which is accomplished better with model 2.
 
 *Technologies used: Microsoft Visual Studio Code. Languages: Python
