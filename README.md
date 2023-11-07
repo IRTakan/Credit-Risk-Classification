@@ -57,9 +57,7 @@ These are the factors that were considered in the analysis:
 - Derogatory marks against the borrower.
 - Total debt.
 
-The dataset of 77,536 data points was split into training and testing sets. The training set was used to build an initial logistic regression model (Logistic Regression Model 1) using the LogisticRegression module from scikit-learn. Logistic Regression Model 1 was then applied to the testing dataset. The purpose of the model was to determine whether a loan to the borrower in the testing set would be low- or high-risk and results are summarized below.
-
-Two different Logistic Regression models were created by using the original data set and randomy over resampled data set (to get rid of the imbalances). In the end, their results -which was gathered with scikit-learn library- were compared. The resampled data was used to build a new logistic regression model (Logistic Regression Model 2). The purpose of Logistic Regression Model 2 was to determine whether a loan to the borrower in the testing set would be low or high-risk.
+The dataset has 77,536 data points of whch were split into training and testing sets. The training set was used to build an initial logistic regression model (Logistic Regression Model 1) using the LogisticRegression module from scikit-learn. Logistic Regression Model 1 was then applied to the testing dataset. The purpose for this was to determine whether a loan to the borrower in the testing set would be low or high-risk. This intial model was drawing from a dataset that had 75,036 low-risk loan data points and 2,500 high-risk data points. To resample the training data and ensure that the logistic regression model had an equal number of data points to draw from, the training set data was resampled with the RandomOverSampler module from imbalanced-learn. This then generated 56,277 data points for both low-risk (0) and high-risk (1) loans, based on the original dataset. The resampled data was the used to build a Logistic Regression Model 2. The purpose of Logistic Regression Model 2 was to determine whether a loan to the borrower in the testing set would be low or high-risk.
 
 --Results--
 
@@ -71,7 +69,7 @@ Logistic Regression Model 1:
 
 Logistic Regression Model 2:
 
-- Accuracy: 0.995.
+- Accuracy: 0.99.
 - Precision: For healthy loans the precision is 0.99, for high-risk loans the precision is 0.99.
 - Recall: For healthy loans the recall score is 0.99, for high-risk loans the recall score is 0.99.
 
